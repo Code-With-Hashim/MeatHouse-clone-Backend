@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@railway/cli": "^2.0.13",
     "bcrypt": "^5.1.0",
     "bson-objectid": "^2.0.4",
     "cloudinary": "^1.33.0",
