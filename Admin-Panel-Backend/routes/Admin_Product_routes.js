@@ -629,8 +629,9 @@ admin_product_routes.post("/create", upload.single('product_img'), async (req, r
 
 
     } catch (error) {
-        console.log(error)
-        res.send('Something went wrong')
+       res.status(404).send({
+        message : 'Something went wrong'
+       })
     }
 
 
