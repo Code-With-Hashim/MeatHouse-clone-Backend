@@ -9,6 +9,7 @@ User_Address_Router.use(authentication)
 
 User_Address_Router.get("/", async (req, res) => {
 
+    const {UserID} = req.body
 
     try {
 
@@ -26,11 +27,13 @@ User_Address_Router.post("/", async (req, res) => {
 
     const { fetchLocation, address, UserID } = req.body
 
+    console.log(req.body)
+
     console.log(UserID)
 
     try {
 
-        await User_Address_Modal.updateOne({ UserID: UserID }, { fetchLocation, address })
+        await User_Address_Modal.updateOne({ UserID: UserID }, { address : req.body })
         const Address_list = await User_Address_Modal.findOne({ UserID: UserID })
 
         res.send(Address_list)

@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 const User_Address_Schema = mongoose.Schema({
     UserID: String,
-    address: String,
+    address: {},
     fetchLocation: String
 } , {
     versionKey : false,
