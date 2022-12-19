@@ -510,7 +510,9 @@ admin_product_routes.post("/create", upload.single('product_img'), async (req, r
 
         if (isValidAdmin) {
 
-            const result = await cloudinary.uploader.upload(req.file.path);
+
+
+            
 
 
 
@@ -542,7 +544,7 @@ admin_product_routes.post("/create", upload.single('product_img'), async (req, r
                 $push: {
                     "Food_list": {
                         product_id: uniqid(),
-                        product_image_src: result.url,
+                        product_image_src : undefined,
                         product_name,
                         item_desc,
                         net_weight,
@@ -557,7 +559,7 @@ admin_product_routes.post("/create", upload.single('product_img'), async (req, r
                 $push: {
                     "Food_list": {
                         product_id: uniqid(),
-                        product_image_src: result.url,
+                        product_image_src: undefined,
                         product_name,
                         item_desc,
                         net_weight,
@@ -572,7 +574,7 @@ admin_product_routes.post("/create", upload.single('product_img'), async (req, r
                 $push: {
                     "Food_list": {
                         product_id: uniqid(),
-                        product_image_src: result.url,
+                        product_image_src : undefined,
                         product_name,
                         item_desc,
                         net_weight,
@@ -587,7 +589,7 @@ admin_product_routes.post("/create", upload.single('product_img'), async (req, r
                 $push: {
                     "Food_list": {
                         product_id: uniqid(),
-                        product_image_src: result.url,
+                        product_image_src :  undefined,
                         product_name,
                         item_desc,
                         net_weight,
@@ -602,7 +604,7 @@ admin_product_routes.post("/create", upload.single('product_img'), async (req, r
                 $push: {
                     "Food_list": {
                         product_id: uniqid(),
-                        product_image_src: result.url,
+                        product_image_src :  undefined,
                         product_name,
                         item_desc,
                         net_weight,
