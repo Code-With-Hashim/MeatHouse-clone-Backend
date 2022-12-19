@@ -14,24 +14,24 @@ const admin_authenticated_routes = express.Router()
 
 
 
-cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET_KEY
-});
+// cloudinary.config({
+//     cloud_name: process.env.CLOUD_NAME,
+//     api_key: process.env.CLOUDINARY_API_KEY,
+//     api_secret: process.env.CLOUDINARY_API_SECRET_KEY
+// });
 
 
 
-const storage = multer.diskStorage({
-    destination: path.join(__dirname, '..', "Admin_Profile_Uploads"),
+// const storage = multer.diskStorage({
+//     destination: path.join(__dirname, '..', "Admin_Profile_Uploads"),
 
-    filename: function (req, file, cb) {
-        cb(null, file.originalname)
-    }
-})
+//     filename: function (req, file, cb) {
+//         cb(null, file.originalname)
+//     }
+// })
 
 
-const upload = multer({ storage: storage })
+// const upload = multer({ storage: storage })
 
 
 admin_authenticated_routes.post("/signup", async (req, res) => {
@@ -137,7 +137,7 @@ admin_authenticated_routes.get("/adminDetail", authentication, async (req, res) 
 
 })
 
-admin_authenticated_routes.patch("/updatedetail", authentication, upload.single('profile_img'), async (req, res) => {
+admin_authenticated_routes.patch("/updatedetail", authentication, async (req, res) => {
 
     let { email, password, name, gender, maritalStatus, AdminID } = req.body
 
