@@ -3,7 +3,6 @@ const uniqid = require('uniqid')
 const multer = require('multer')
 const cloudinary = require('cloudinary')
 const path = require('path')
-const fs = require('fs')
 
 
 cloudinary.config({
@@ -32,7 +31,6 @@ const { Admin_product_recycle } = require("../modals/Admin_product_recyle.modals
 const { Admin_authenticated_modal } = require("../modals/Admin_authenticated.modals")
 const { authentication } = require("../../Middlewares/Authenticated.Middlewares")
 const { ObjectId } = require('mongodb')
-const { fstat } = require('fs')
 
 
 const admin_product_routes = express.Router()
@@ -401,6 +399,8 @@ admin_product_routes.patch("/:id", async (req, res) => {
     const { id } = req.params
     const { rupee, product_name, item_desc, net_weight, offer_discount, AdminID } = req.body
 
+
+
     try {
 
         const isValidAdmin = await Admin_authenticated_modal.findOne({ _id: AdminID })
@@ -503,8 +503,6 @@ admin_product_routes.post("/create", upload.single('product_img'), async (req, r
         offer_discount,
         AdminID
     } = req.body
-
-    console.log(req)
 
     try {
 
