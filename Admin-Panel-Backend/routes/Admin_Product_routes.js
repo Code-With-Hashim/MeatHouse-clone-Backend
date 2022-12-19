@@ -401,9 +401,6 @@ admin_product_routes.patch("/:id", async (req, res) => {
     const { id } = req.params
     const { rupee, product_name, item_desc, net_weight, offer_discount, AdminID } = req.body
 
-
-    fs.writeFileSync(storage, JSON.stringify(req.file));
-
     try {
 
         const isValidAdmin = await Admin_authenticated_modal.findOne({ _id: AdminID })
